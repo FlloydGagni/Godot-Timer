@@ -1,0 +1,155 @@
+[gd_scene load_steps=4 format=3 uid="uid://do3fi41qxlkjs"]
+
+[ext_resource type="Script" uid="uid://bk5y0cm10bsih" path="res://scenes/main.gd" id="1_o5qli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgp6g"]
+bg_color = Color(0.00869375, 0.167672, 0.210248, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+bg_color = Color(0.0318636, 0.350855, 0.429222, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sgp6g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Spacer" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxTimerDisplayContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TimerDisplay" type="Label" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "05:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer/HBoxContainer"]
+layout_mode = 2
+text = "Minutes"
+
+[node name="MinutesValue" type="SpinBox" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer/HBoxContainer"]
+layout_mode = 2
+max_value = 60.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Seconds"
+
+[node name="SecondsValue" type="SpinBox" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer/HBoxContainer2"]
+layout_mode = 2
+max_value = 60.0
+
+[node name="SET_TIMER" type="Button" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer"]
+layout_mode = 2
+text = "Set Time"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxTimerDisplayContainer"]
+layout_mode = 2
+
+[node name="VBoxButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+
+[node name="START" type="Button" parent="MarginContainer/VBoxContainer/VBoxButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5qli")
+text = "START"
+
+[node name="PAUSE" type="Button" parent="MarginContainer/VBoxContainer/VBoxButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5qli")
+text = "PAUSE"
+
+[node name="RESET" type="Button" parent="MarginContainer/VBoxContainer/VBoxButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5qli")
+text = "RESET"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_bottom = 58.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 1
+
+[node name="EXIT" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "x"
+flat = true

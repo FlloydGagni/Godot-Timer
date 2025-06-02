@@ -11,8 +11,19 @@ config_version=5
 [application]
 
 config/name="Godot Timer"
+run/main_scene="uid://do3fi41qxlkjs"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=360
+window/size/viewport_height=640
+window/handheld/orientation=1
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [rendering]
 
