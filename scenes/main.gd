@@ -14,7 +14,6 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer/VBoxButtonContainer/START.pressed.connect(start_timer)
 	$MarginContainer/VBoxContainer/VBoxButtonContainer/PAUSE.pressed.connect(pause_timer)
 	$MarginContainer/VBoxContainer/VBoxButtonContainer/RESET.pressed.connect(reset_timer)
-	$HBoxContainer/EXIT.pressed.connect(exit_timer)
 	$MarginContainer/VBoxContainer/VBoxTimerDisplayContainer/SET_TIMER.pressed.connect(set_timer)
 	timer_node.timeout.connect(on_timer_tick)
 
@@ -25,7 +24,7 @@ func update_timer_display() -> void:
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func start_timer() -> void:
-	if not is_running:
+	if not is_running and time_left > 0: 
 		is_running = true
 		timer_node.start()
 
@@ -41,12 +40,12 @@ func reset_timer() -> void:
 	update_timer_display()
 
 func on_timer_tick() -> void:
-	time_left -= 1
-	update_timer_display()
-
-func exit_timer() -> void:
-	print("Exit Button Pressed")
-	get_tree().quit()
+	if time_left > 0:
+		time_left -= 1
+		update_timer_display()
+	else:
+		is_running = false
+		timer_node.stop()
 
 func set_timer() -> void:
 	var minutes = minutes_input.value

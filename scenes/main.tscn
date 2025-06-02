@@ -135,21 +135,3 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_o5qli")
 text = "RESET"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -59.0
-offset_bottom = 58.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-alignment = 1
-
-[node name="EXIT" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "x"
-flat = true
